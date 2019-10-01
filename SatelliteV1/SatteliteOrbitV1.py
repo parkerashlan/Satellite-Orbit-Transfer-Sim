@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Created on Tue Sep 17 17:54:18 2019
 
@@ -195,6 +193,7 @@ class Animate:
         return anim
      
 if __name__ == '__main__':
+"""Example of a transfer between a low Earth orbit and a Geosynchronous orbit."""
 
     LEO = 6.37e6+2e6
     GEO = 6.37e6+3.578e6
