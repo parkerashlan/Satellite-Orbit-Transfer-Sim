@@ -1,0 +1,39 @@
+"""Example of a transfer between a low Earth orbit and a Geosynchronous orbit."""
+
+    LEO = 6.37e6+2e6
+    GEO = 6.37e6+3.578e6
+    msat = 5443.11
+    mearth = 5.872e24
+    
+    satellite_LEO = Body(msat,LEO,0)
+    satellite_GEO = Body(msat,-GEO,0)
+    transferorb = HohmannTransfer(LEO,GEO)
+    
+    LEO = Orbit(mearth, satellite_LEO.r, satellite_LEO.vel(mearth))
+    GEO = Orbit(mearth, satellite_GEO.r, satellite_GEO.vel(mearth))
+    transfer = Orbit(mearth, -satellite_LEO.r, -transferorb.vel(mearth)[0])
+    
+    t = np.linspace(0,10000,900)
+    t_transf = np.linspace(0,transferorb.TOF(mearth),300)
+    
+    orbitpos_LEO = LEO.OrbitPos(LEO.rv,t,mearth)
+    orbitpos_GEO = GEO.OrbitPos(GEO.rv,t,mearth)
+    orbitpos_transfer = transfer.OrbitPos(transfer.rv, t_transf, mearth)
+    
+    x_LEO = orbitpos_LEO[0]
+    y_LEO = orbitpos_LEO[1]
+    x_GEO = orbitpos_GEO[0]
+    y_GEO = orbitpos_GEO[1]
+    x_transf = orbitpos_transfer[0]
+    y_transf = orbitpos_transfer[1]
+    
+    xlim = 2e7
+    ylim = 2e7
+    
+    ani1 = Animate.ani(xlim,ylim,x_LEO,y_LEO)
+    
+    ani2 = Animate.ani(xlim,ylim,x_transf,y_transf)
+    
+    ani3 = Animate.ani(xlim,ylim,x_GEO, y_GEO)
+    
+    plt.show(ani1)
