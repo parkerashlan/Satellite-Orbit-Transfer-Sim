@@ -1,3 +1,5 @@
+import SatteliteV1 as *
+
 """Example of a transfer between a low Earth orbit and a Geosynchronous orbit."""
 
     LEO = 6.37e6+2e6
