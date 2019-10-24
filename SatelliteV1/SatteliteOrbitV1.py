@@ -119,7 +119,7 @@ class Orbit:
          self.m = m
          self.r = r
          self.v = v
-         self.rv = np.array([-r,0,0,-v])
+         self.rv = np.array([r,0,0,v])
          
      
      def OrbitPos(self, rv, t, m): 
