@@ -21,7 +21,7 @@ transferorb = s.HohmannTransfer(LEO,GEO)
     
 LEO = s.Orbit(mearth, satellite_LEO.r, satellite_LEO.vel(mearth))
 GEO = s.Orbit(mearth, satellite_GEO.r, satellite_GEO.vel(mearth))
-transfer = s.Orbit(mearth, -satellite_LEO.r, -transferorb.vel(mearth)[0])
+transfer = s.Orbit(mearth, satellite_LEO.r, transferorb.vel(mearth)[0])
     
 t = linspace(0,10000,900)
 t_transf = linspace(0,transferorb.TOF(mearth),900)
