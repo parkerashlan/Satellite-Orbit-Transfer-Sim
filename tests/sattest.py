@@ -24,7 +24,7 @@ GEO = s.Orbit(mearth, satellite_GEO.r, satellite_GEO.vel(mearth))
 transfer = s.Orbit(mearth, -satellite_LEO.r, -transferorb.vel(mearth)[0])
     
 t = linspace(0,10000,900)
-t_transf = linspace(0,transferorb.TOF(mearth),300)
+t_transf = linspace(0,transferorb.TOF(mearth),900)
     
 orbitpos_LEO = LEO.OrbitPos(LEO.rv,t,mearth)
 orbitpos_GEO = GEO.OrbitPos(GEO.rv,t,mearth)
